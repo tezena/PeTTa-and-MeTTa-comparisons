@@ -3,17 +3,14 @@
 No |              Test Case               |  MeTTa  | PeTTa |  Observations   
 ---|--------------------------------------|---------|-------|----
 1  | `!(bind! A B)`                       | ✅      | ❌    | Doesn't work on PeTTa
-2  | `!(import! &tmp file)`               | ✅      | ❌    | Doesn't work on PeTTa
-3  | `!(union-atom (1 2) (3 4))`          | ✅      | ❌    | Doesn't work on PeTTa
-4  | `!(cons-atom 0 (1 2 3))`             | ✅      | ❌    | Doesn't work on PeTTa
-5  | `!(decons-atom (1 2 3))`             | ✅      | ❌    | Doesn't work on PeTTa
-6  | `!(intersection-atom (1 2) (3 4))`   | ✅      | ❌    | Doesn't work on PeTTa
-7  | `!(car-atom (1 2 3))`                | ✅      | ✅    | Works on both
-8  | `!(cdr-atom (1 2 3))`                | ✅      | ✅    | Works on both
-8  | `!(superpose (1 2 3))`               | ✅      | ✅    | Works on both
+2  | `!(union-atom (1 2) (3 4))`          | ✅      | ❌    | Doesn't work on PeTTa
+3  | `!(cons-atom 0 (1 2 3))`             | ✅      | ❌    | Doesn't work on PeTTa
+4  | `!(intersection-atom (1 2) (3 4))`   | ✅      | ❌    | Doesn't work on PeTTa
+5  | `!(car-atom (1 2 3))`                | ✅      | ✅    | Works on both
+6  | `!(cdr-atom (1 2 3))`                | ✅      | ✅    | Works on both
+7  | `!(superpose (1 2 3))`               | ✅      | ✅    | Works on both
 8  | `!(collapse (superpose(1 2 3)))`     | ✅      | ✅    | Works on both
-9  | `!(size-atom (1 2 3))`               | ✅      | ❌    | Doesn't work on PeTTa
-10 | `!(index-atom (1 2 3) 1)`            | ✅      | ❌    | Doesn't work on PeTTa
+9  | `!(index-atom (1 2 3) 1)`            | ✅      | ❌    | Doesn't work on PeTTa
 
 ## Extended built-ins coverage
 
@@ -84,8 +81,7 @@ No | Test Case | MeTTa | PeTTa | Observations
 ---|-----------|-------|-------|-------------
 48 | `!(superpose (A B C))` | ✅ | ✅ | MeTTa returns nondet A,B,C; PeTTa prints `A B C`
 49 | `!(collapse (superpose (A B C)))` | ✅ | ✅ | MeTTa `(A B C)`; PeTTa `((A B C))`
-50 | `!(collapse-bind ...)` | ⚠️ | ⚠️ | Not tested here; requires proper `(Atom Bindings)` tuples
-51 | `!(superpose-bind ...)` | ⚠️ | ⚠️ | Not tested here; requires proper `(Atom Bindings)` tuples
+
 
 ### Type System
 
@@ -105,9 +101,9 @@ No | Test Case | MeTTa | PeTTa | Observations
 No | Test Case | MeTTa | PeTTa | Observations
 ---|-----------|-------|-------|-------------
 60 | `!(format-args (Probability of {} is {}%) (head 50))` | ❌ | ❌ | MeTTa reports wrong args; likely needs stdlib formatting context
-61 | `!(foldl-atom (1 2 3 4) 0 $acc $x (+ $acc $x))` | ❌ | ❌ | Not available in current MeTTa env; PeTTa unsupported
-62 | `!(map-atom (1 2 3) $x (+ $x 1))` | ❌ | ❌ | Same as above
-63 | `!(filter-atom (1 2 3 4 5) $x (> $x 3))` | ❌ | ❌ | Same as above
+61 | `!(foldl-atom (1 2 3 4) 0 $acc $x (+ $acc $x))` |   ✅ | ❌ | Not available in current MeTTa env; PeTTa unsupported
+62 | `!(map-atom (1 2 3) $x (+ $x 1))` |✅| ❌ | Same as above
+63 | `!(filter-atom (1 2 3 4 5) $x (> $x 3))` | ✅| ❌ | Same as above
 
 ### Atomspace Interaction
 
